@@ -3,7 +3,6 @@ import { TextInput } from "./shared/CustomInput";
 import { SubmitButton } from "./shared/CustomButton";
 import IconSearchParcel from "./IconComponents/IconSearchParcel";
 import ParcelDetails from "./ParcelDetails";
-import { mainData } from "../data";
 import { useGetShipmentMutation } from "../redux/api/authApi";
 import { ErrorMessage } from "../model";
 import { Spin } from "antd";
@@ -49,7 +48,7 @@ const Parcel = () => {
         (error as ErrorMessage).data.message || "Please enter a valid AWB"
       );
     }
-  }, [isError]);
+  }, [isError, error]);
   return (
     <div className="max-w-7xl mx-auto">
       <div className="">
@@ -79,7 +78,7 @@ const Parcel = () => {
 
       {isLoading ? (
         <Spin />
-      ) : data ? (
+      ) : data && isSuccess ? (
         <ParcelDetails data={data} />
       ) : (
         <div className="flex flex-col items-center gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">

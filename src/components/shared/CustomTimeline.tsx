@@ -1,5 +1,5 @@
 import React from "react";
-import IconLock from "../IconComponents/IconLock";
+
 import IconPackageCreated from "../IconComponents/IconPackageCreated";
 import IconPackageCheck from "../IconComponents/IconPackageCheck";
 import IconPackageSearch from "../IconComponents/IconPackageSearch";

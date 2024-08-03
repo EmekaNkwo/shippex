@@ -7,9 +7,6 @@ import IconLock from "./IconComponents/IconLock";
 import { useLoginMutation } from "../redux/api/authApi";
 import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../model";
-import Cookies from "js-cookie";
-import axios from "axios";
-import { baseUrl } from "../redux/queryInterceptor";
 
 const LoginForm = () => {
   const [username, setUsername] = useState<string>("");
@@ -41,18 +38,7 @@ const LoginForm = () => {
     formData.append("usr", username);
     formData.append("pwd", password);
 
-    try {
-      const response = await axios.post(`${baseUrl}method/login`, formData, {
-        withCredentials: true,
-      });
-      // Handle the response from the server
-      console.log(response.data);
-      sessionStorage.setItem("username", data?.full_name);
-      navigate("/app");
-    } catch (error) {
-      // Handle any errors that occur during the request
-      console.error(error);
-    }
+    await login(formData);
   };
 
   useEffect(() => {

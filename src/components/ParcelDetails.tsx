@@ -1,7 +1,6 @@
 import moment from "moment";
-import { IParcelDetails } from "../model";
 import IconConsignee from "./IconComponents/IconConsignee";
-import IconDelivery from "./IconComponents/IconDelivery";
+
 import IconDestination from "./IconComponents/IconDestination";
 import IconOrigin from "./IconComponents/IconOrigin";
 import IconReceipt from "./IconComponents/IconReceipt";
