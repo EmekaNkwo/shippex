@@ -7,7 +7,6 @@ import IconLock from "./IconComponents/IconLock";
 import { useLoginMutation } from "../redux/api/appApi";
 import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../model";
-import Cookies from "js-cookie";
 
 const LoginForm = () => {
   const [username, setUsername] = useState<string>("");
@@ -49,7 +48,8 @@ const LoginForm = () => {
       navigate("/app");
     } else if (isError) {
       message.error(
-        (error as ErrorMessage).data.message || "Incorrect Username or Password"
+        (error as ErrorMessage)?.data?.message ||
+          "Incorrect Username or Password"
       );
     }
   }, [isError, isSuccess, error, navigate, data]);

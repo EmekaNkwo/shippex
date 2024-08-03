@@ -17,12 +17,18 @@ const Parcel = () => {
     useGetShipmentMutation();
   const [errorMesg, setErrorMesg] = useState<string>("");
 
+  useEffect(() => {
+    if (search.length > 0) {
+      setSearchQuery(search);
+    }
+  }, [search]);
+
   const handleSearchShipment = async () => {
     if (search === "") {
       message.error("Please enter a valid AWB");
       return;
     }
-    setSearchQuery(search);
+
     setLoadingData(true);
     await getShipment({
       doctype: "AWB",
@@ -55,7 +61,7 @@ const Parcel = () => {
         setLoadingData(false);
       }
     }
-  }, [isError, error, isSuccess, data, searchQuery]);
+  }, [isError, error, isSuccess, searchQuery]);
   return (
     <div className="max-w-7xl mx-auto">
       <div className="">
@@ -64,7 +70,7 @@ const Parcel = () => {
             <TextInput
               placeholder="Enter AWB ID"
               className="lg:w-[600px] w-full"
-              status={errorMesg !== "" ? "error" : ""}
+              status={errorMesg ? "error" : ""}
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
