@@ -79,7 +79,7 @@ const LoginForm = () => {
         />
         <Checkbox>Remember me</Checkbox>
         <SubmitButton
-          disabled={(username === "" && password === "") || isLoading}
+          disabled={!(username && password) || isLoading}
           title={isLoading ? "Loading" : "Login"}
           onClick={handleLogin}
         />
