@@ -29,7 +29,7 @@ const Parcel = () => {
   };
 
   useEffect(() => {
-    // Simulating an API response
+    // Simulating an API response, getting Cors Error
 
     if (isError && searchQuery !== "210173066689") {
       if (searchQuery.length < 12) {
