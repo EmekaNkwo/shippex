@@ -31,16 +31,16 @@ const Parcel = () => {
   useEffect(() => {
     // Simulating an API response, getting Cors Issues
 
-    if (isError && searchQuery !== "210173066689") {
+    if (isError && searchQuery !== "210173099796") {
       if (searchQuery.length < 12) {
         setErrorMesg("Please enter a valid AWB");
-      } else if (searchQuery.length === 12 && searchQuery !== "210173066689") {
+      } else if (searchQuery.length === 12 && searchQuery !== "210173099796") {
         setErrorMesg("AWB not found");
       }
       setLoadingData(false);
     }
 
-    if (searchQuery === "210173066689") {
+    if (searchQuery === "210173099796") {
       if (isSuccess) {
         setParcelData(data);
       } else {
@@ -82,7 +82,7 @@ const Parcel = () => {
 
       {isLoading || loadingData ? (
         <Spin className="mt-4" />
-      ) : (data && isSuccess) || searchQuery === "210173066689" ? (
+      ) : (data && isSuccess) || searchQuery === "210173099796" ? (
         <ParcelDetails data={parcelData} />
       ) : (
         <div className="flex flex-col items-center gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
