@@ -61,7 +61,7 @@ const Parcel = () => {
         setLoadingData(false);
       }
     }
-  }, [isError, error, isSuccess, searchQuery]);
+  }, [isError, error, isSuccess, data, searchQuery]);
   return (
     <div className="max-w-7xl mx-auto">
       <div className="">
