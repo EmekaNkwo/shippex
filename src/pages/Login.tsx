@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import IconLogo from "../components/IconComponents/IconLogo";
 import LoginForm from "../components/LoginForm";
 
 const Login = () => {
+  // to clear the user info from session storage
+  useEffect(() => {
+    sessionStorage.clear();
+  }, []);
+
   return (
     <div className="flex  h-screen">
       <div className="p-10">

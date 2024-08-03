@@ -1,12 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
-import { shipmentApi } from "./api/shipmentApi";
-import { authApi } from "./api/authApi";
+import { appApi } from "./api/appApi";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 const rootReducer = combineReducers({
-  [authApi.reducerPath]: authApi.reducer,
-  [shipmentApi.reducerPath]: shipmentApi.reducer,
+  [appApi.reducerPath]: appApi.reducer,
 });
 
 const store = configureStore({
@@ -15,7 +13,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-    }).concat([shipmentApi.middleware, authApi.middleware]),
+    }).concat([appApi.middleware]),
 });
 
 setupListeners(store.dispatch);

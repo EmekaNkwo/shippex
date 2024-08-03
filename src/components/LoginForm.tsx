@@ -4,9 +4,10 @@ import { PasswordInput, TextInput } from "./shared/CustomInput";
 import { SubmitButton } from "./shared/CustomButton";
 import IconUser from "./IconComponents/IconUser";
 import IconLock from "./IconComponents/IconLock";
-import { useLoginMutation } from "../redux/api/authApi";
+import { useLoginMutation } from "../redux/api/appApi";
 import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../model";
+import Cookies from "js-cookie";
 
 const LoginForm = () => {
   const [username, setUsername] = useState<string>("");

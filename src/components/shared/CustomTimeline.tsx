@@ -8,7 +8,7 @@ interface TimelineEvent {
   title?: string;
   scan_comment?: string;
   added_by?: string;
-  time?: string;
+  scan_date?: string;
   avatar?: string;
   scan?: string;
 }
@@ -32,12 +32,12 @@ const TimelineComponent: React.FC<TimelineProps> = ({ events }) => {
     <div className="relative max-w-xl mx-auto">
       {events?.map((event, index) => (
         <div key={index} className="flex w-full">
-          <div className="flex flex-col  w-36 pr-8">
+          <div className="flex flex-col w-28 lg:w-36 pr-8">
             <span className="text-[14px] font-medium text-[#6B7280]">
-              {moment(event?.time).format("hh:mm A")}
+              {moment(event?.scan_date).format("hh:mm A")}
             </span>
             <span className="text-[14px] font-medium text-[#6B7280]">
-              {moment(event?.time).format("MMM Do YYYY")}
+              {moment(event?.scan_date).format("MMM Do YYYY")}
             </span>
           </div>
 

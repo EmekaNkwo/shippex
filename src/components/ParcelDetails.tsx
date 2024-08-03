@@ -11,7 +11,7 @@ import TimelineComponent from "./shared/CustomTimeline";
 
 const ParcelDetails = ({ data }: { data: Record<string, any> }) => {
   return (
-    <div className="w-full grid grid-cols-2 mt-[1rem]">
+    <div className="w-full grid grid-cols-1 gap-3 lg:gap-0 lg:grid-cols-2 mt-[1rem]">
       <div>
         <div className="border-t border-l border-r border-[#E5E7EB] rounded-t-[12px] p-4">
           <div className="flex flex-col gap-2">

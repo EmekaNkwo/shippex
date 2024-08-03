@@ -3,8 +3,8 @@ import { TextInput } from "./shared/CustomInput";
 import { SubmitButton } from "./shared/CustomButton";
 import IconSearchParcel from "./IconComponents/IconSearchParcel";
 import ParcelDetails from "./ParcelDetails";
-import { useGetShipmentMutation } from "../redux/api/authApi";
-import { Spin } from "antd";
+import { useGetShipmentMutation } from "../redux/api/appApi";
+import { Spin, message } from "antd";
 import { mainData } from "../data";
 import IconNotFound from "./IconComponents/IconNotFound";
 
@@ -18,6 +18,10 @@ const Parcel = () => {
   const [errorMesg, setErrorMesg] = useState<string>("");
 
   const handleSearchShipment = async () => {
+    if (search === "") {
+      message.error("Please enter a valid AWB");
+      return;
+    }
     setSearchQuery(search);
     setLoadingData(true);
     await getShipment({
@@ -27,9 +31,8 @@ const Parcel = () => {
       },
     });
   };
-
   useEffect(() => {
-    // Simulating an API response, getting Cors Issues
+    // Simulating an API response, getting Cookie Issues,
 
     if (isError && searchQuery !== "210173099796") {
       if (searchQuery.length < 12) {
@@ -60,7 +63,7 @@ const Parcel = () => {
           <div className="flex flex-col gap-1">
             <TextInput
               placeholder="Enter AWB ID"
-              className="w-[600px]"
+              className="lg:w-[600px] w-full"
               status={errorMesg !== "" ? "error" : ""}
               value={search}
               onChange={(e) => {
@@ -74,7 +77,7 @@ const Parcel = () => {
           </div>
           <SubmitButton
             title="Track"
-            className="w-[120px]"
+            className="lg:w-[120px] w-[80px]"
             onClick={handleSearchShipment}
           />
         </div>
