@@ -45,7 +45,7 @@ const LoginForm = () => {
     if (isSuccess) {
       message.success("Login Successful");
       sessionStorage.setItem("username", data?.full_name);
-      // navigate("/app");
+      navigate("/app");
     } else if (isError) {
       message.error(
         (error as ErrorMessage).data.message || "Incorrect Username or Password"
