@@ -16,11 +16,11 @@ const ParcelDetails = ({ data }: { data: Record<string, any> }) => {
         <div className="border-t border-l border-r border-[#E5E7EB] rounded-t-[12px] p-4">
           <div className="flex flex-col gap-2">
             <h3 className="text-[#1F2937] text-[18px] font-semibold">
-              {data.name}
+              {data?.name}
             </h3>
             <span className="text-[14px] text-[#6B7280] font-light">
               Last updated{" "}
-              {moment(data.modified).format("MMMM Do YYYY, hh:mm A")}
+              {moment(data?.modified).format("MMMM Do YYYY, hh:mm A")}
             </span>
           </div>
           <div className="flex flex-col gap-7 p-3 mt-3">
@@ -29,21 +29,22 @@ const ParcelDetails = ({ data }: { data: Record<string, any> }) => {
                 <IconSender /> Sender
               </span>
               <span className="text-[#1F2937]">
-                {data.sender} {data.sender_name}
+                {data?.sender} {data?.sender_name}
               </span>
             </div>
             <div className="grid grid-cols-2 items-center">
               <span className="text-[#6B7280] flex items-center gap-2 ">
                 <IconConsignee /> Consignee
               </span>
-              <span className="text-[#1F2937]">{data.consignee}</span>
+              <span className="text-[#1F2937]">{data?.consignee}</span>
             </div>
             <div className="grid grid-cols-2 items-start">
               <span className="text-[#6B7280] flex items-center gap-2">
                 <IconOrigin /> Origin Address
               </span>
               <span className="w-32 text-[#1F2937]">
-                {data.origin_city}, {data.origin_state}, {data.origin_country}
+                {data?.origin_city}, {data?.origin_state},{" "}
+                {data?.origin_country}
               </span>
             </div>
             <div className="grid grid-cols-2 items-start">
@@ -51,15 +52,15 @@ const ParcelDetails = ({ data }: { data: Record<string, any> }) => {
                 <IconDestination /> Destination Address
               </span>
               <span className="w-36 text-[#1F2937]">
-                {data.destination_city}, {data.destination_state},{" "}
-                {data.destination_country}
+                {data?.destination_city}, {data?.destination_state},{" "}
+                {data?.destination_country}
               </span>
             </div>
             <div className="grid grid-cols-2 items-start">
               <span className="text-[#6B7280] flex items-center gap-2">
                 <IconShipping /> Shipping Service
               </span>
-              <span className="text-[#1F2937]">{data.shipping_service}</span>
+              <span className="text-[#1F2937]">{data?.shipping_service}</span>
             </div>
           </div>
         </div>
@@ -68,8 +69,8 @@ const ParcelDetails = ({ data }: { data: Record<string, any> }) => {
             <IconReceipt /> Total COD Amount
           </span>
           <span className="text-[#1F2937]">
-            {data.total_cod} {""}
-            {data.currency}
+            {data?.total_cod} {""}
+            {data?.currency}
           </span>
         </div>
       </div>
